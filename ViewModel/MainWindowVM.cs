@@ -17,8 +17,14 @@ namespace ООО__Столовые_приборы_.ViewModel
 
         private Visibility loggedIn1;
         private User user = new User();
+        private string userName;
 
         public Command Logout { get; set; }
+
+        public string UserName 
+        {
+            get =>$"{user.UserSurname} {user.UserName} {user.UserPatronymic}" ; 
+        }
 
         public Page CurrentPage
         {
@@ -30,7 +36,7 @@ namespace ООО__Столовые_приборы_.ViewModel
             }
         }
 
-        public User User 
+        public User User
         {
             get => user;
             set
@@ -61,7 +67,9 @@ namespace ООО__Столовые_приборы_.ViewModel
 
             Logout = new Command(() =>
             {
-
+                User = new User();
+                LoggedIn = Visibility.Collapsed;
+                CurrentPage = new AuthPage(this);
             });
         }
     }
