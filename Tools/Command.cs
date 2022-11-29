@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ООО__Столовые_приборы_.Views
+namespace ООО__Столовые_приборы_.Tools
 {
-    public class Command: ICommand
+    public class Command : ICommand
     {
         Action action;
         public Command(Action action)

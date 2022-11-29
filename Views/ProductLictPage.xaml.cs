@@ -17,14 +17,14 @@ using ООО__Столовые_приборы_.ViewModel;
 namespace ООО__Столовые_приборы_.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для ProductLictPage.xaml
     /// </summary>
-    public partial class AuthPage : Page
+    public partial class ProductLictPage : Page
     {
-        public AuthPage(MainWindowVM mainVM)
+        public ProductLictPage(MainWindowVM mainVM)
         {
             InitializeComponent();
-            DataContext = new AuthPageVM(mainVM, textPassword);
+            DataContext = new ProductLictPageVM(mainVM);
         }
     }
 }

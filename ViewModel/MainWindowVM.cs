@@ -15,9 +15,9 @@ namespace ООО__Столовые_приборы_.ViewModel
     {
         private Page currentPage;
 
-        private Visibility loggedIn1;
+        private Visibility loggedIn = Visibility.Collapsed;
+
         private User user = new User();
-        private string userName;
 
         public Command Logout { get; set; }
 
@@ -52,10 +52,10 @@ namespace ООО__Столовые_приборы_.ViewModel
 
         public Visibility LoggedIn
         {
-            get => loggedIn1;
+            get => loggedIn;
             set
             {
-                loggedIn1 = value;
+                loggedIn = value;
                 SignalChanged();
             }
 

@@ -1,0 +1,75 @@
+﻿<Page x:Class="ООО__Столовые_приборы_.Views.ProductLictPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ООО__Столовые_приборы_.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductLictPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Добавить" Command="{Binding AddProduct}"/>
+                <Button Content="Редактировать" Command="{Binding EditProduct}"/>
+                <Button Content="Удалить" Command="{Binding RemoveProduct}"/>
+            </StackPanel>
+        </Grid>
+        
+    <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        
+        
+        <StackPanel>
+            <Label Content="Поиск товара"/>
+            <TextBox Text="{Binding Search}" MinWidth="150"/>
+            <Label Content="Сортировка по стоимости"/>
+            <ComboBox SelectedItem="{Binding Sortprice}">
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+            <Label Content="Фильтрация по производителям"/>
+            <ComboBox ItemsSource="{Binding SortManufacterer}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedManufacturer}"/>
+        </StackPanel>
+        <ListView Grid.Column="1" HorizontalContentAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductPhoto}" Header="Фото"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductName}" Header="Наименование"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductDescription}" Header="Описание"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductManufacturer}" Header="Производитель"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductCost}" Header="Цена"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductQuantityInStock}" Header="Кол-во на складе"/>
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ProductArticleNumber}" Header="Артикль"/>-->
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ProductUnits}" Header="Ед. измерения"/>-->
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ProductMaxDiscount}" Header="Размер макс. скидки"/>-->
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding ProductProvider}" Header="Поставщик"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductCategory}" Header="Категория"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductDiscountAmount}" Header="Сумма скидки"/>--> 
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        
+    </Grid>
+    </Grid>
+</Page>

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ООО__Столовые_приборы_.Tools
 {
-    public class BaseVM: INotifyPropertyChanged
+    public class BaseVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void SignalChanged([CallerMemberName]string prop = null)
+        protected void SignalChanged([CallerMemberName] string prop = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop)); 
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -8,6 +8,8 @@ namespace ООО__Столовые_приборы_.DB
 {
     public partial class user09Context : DbContext
     {
+        
+
         public user09Context()
         {
         }
@@ -232,5 +234,15 @@ namespace ООО__Столовые_приборы_.DB
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        private static user09Context instance;
+
+        public static user09Context GetInstance()
+        {
+            if(instance == null)
+            {
+                instance = new user09Context();
+            }
+            return instance;
+        }
     }
 }
