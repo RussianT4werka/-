@@ -33,4 +33,10 @@
     <Resource Include="Image\logo.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Image\picture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -18,13 +18,10 @@
                 <ColumnDefinition />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Label Content="{Binding RowsCount}"/>
             
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
             
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding IsAdminVisibility}">
                 <Button Content="Добавить" Command="{Binding AddProduct}"/>
                 <Button Content="Редактировать" Command="{Binding EditProduct}"/>
                 <Button Content="Удалить" Command="{Binding RemoveProduct}"/>
@@ -50,10 +47,16 @@
             <Label Content="Фильтрация по производителям"/>
             <ComboBox ItemsSource="{Binding SortManufacterer}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedManufacturer}"/>
         </StackPanel>
-        <ListView Grid.Column="1" HorizontalContentAlignment="Stretch">
+        <ListView ItemsSource="{Binding Products}" Grid.Column="1" HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding ProductPhoto}" Header="Фото"/>
+                        <GridViewColumn Header="Фото">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Image}" MaxWidth="200" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding ProductName}" Header="Наименование"/>
                     <GridViewColumn DisplayMemberBinding="{Binding ProductDescription}" Header="Описание"/>
                     <GridViewColumn DisplayMemberBinding="{Binding ProductManufacturer}" Header="Производитель"/>

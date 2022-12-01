@@ -17,21 +17,11 @@ namespace ООО__Столовые_приборы_.ViewModel
     internal class AuthPageVM : BaseVM
     {
         private MainWindowVM mainVM;
-        private Canvas capchaCanvas;
-        private Visibility capchaVisible;
+        
         public string Login { get; set; }
 
         public Command Enter { get; set; }
-        public Visibility CapchaVisible 
-        { 
-            get => capchaVisible;
-            set
-            {
-                capchaVisible = value;
-                SignalChanged();
-            }
-        }
-
+        public Command EnterGuest { get; set; }
 
         public AuthPageVM(MainWindowVM mainVM, System.Windows.Controls.PasswordBox textPassword)
         {
@@ -41,6 +31,12 @@ namespace ООО__Столовые_приборы_.ViewModel
             {
                 string pass = textPassword.Password;
                 CheckLoginPassword(pass);
+            });
+
+            EnterGuest = new Command(() =>
+            {
+                mainVM.User = new User { UserRoleNavigation = new Role { RoleName = "Гость" } };
+                mainVM.CurrentPage = new ProductLictPage(mainVM);
             });
         }
 

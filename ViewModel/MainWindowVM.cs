@@ -15,15 +15,20 @@ namespace ООО__Столовые_приборы_.ViewModel
     {
         private Page currentPage;
 
-        private Visibility loggedIn = Visibility.Collapsed;
-
         private User user = new User();
+
+        private Visibility loggedIn = Visibility.Collapsed;
 
         public Command Logout { get; set; }
 
-        public string UserName 
+        public string UserName
         {
-            get =>$"{user.UserSurname} {user.UserName} {user.UserPatronymic}" ; 
+            get => $"{user.UserSurname} {user.UserName} {user.UserPatronymic}";
+        }
+
+        public string Role 
+        {
+            get => $"{user.UserRoleNavigation?.RoleName}";
         }
 
         public Page CurrentPage
@@ -48,7 +53,6 @@ namespace ООО__Столовые_приборы_.ViewModel
                 SignalChanged("Role");
             }
         }
-
 
         public Visibility LoggedIn
         {

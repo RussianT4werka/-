@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ООО__Столовые_приборы_"
         mc:Ignorable="d"
-        Title="ООО Столовые приборы" Height="450" Width="800"  WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="800">
+        Title="ООО Столовые приборы" WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,8 +18,8 @@
                 <ColumnDefinition Width="0.3*"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Image/logo.png" Width="100"/>
-            <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Магазин по продаже столовых приборов и кухонной утвари"/>
-            <StackPanel Grid.Column="1" Visibility="{Binding LoggedIn}" Grid.ColumnSpan="2" Margin="465,0,0,0">
+            <Label Grid.Column="1" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Center" Content="Магазин по продаже столовых приборов и кухонной утвари"/>
+            <StackPanel Grid.Column="2" Visibility="{Binding LoggedIn}">
                 <Label Content="Авторизованный пользователь:"/>
                 <Label Content="{Binding UserName}"/>
                 <Label Content="{Binding Role}"/>
